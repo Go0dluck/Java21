@@ -1,4 +1,12 @@
+class ListElement {
+    Transaction data;
+    ListElement prev;
+    ListElement next;
+}
+
 public class TransactionsLinkedList implements TransactionsList{
+    private ListElement head;
+    private ListElement tail;
 
     @Override
     public void addTransaction(User recipient, User sender, int amount) {

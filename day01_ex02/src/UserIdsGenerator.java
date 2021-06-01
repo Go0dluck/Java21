@@ -1,5 +1,5 @@
 public class UserIdsGenerator {
-    private static int Identifier;
+    private static int identifier;
     private static UserIdsGenerator generator;
 
     public static UserIdsGenerator getInstance() {
@@ -12,6 +12,6 @@ public class UserIdsGenerator {
     private UserIdsGenerator() {}
 
     public int generateId(){
-        return Identifier++;
+        return identifier++;
     }
 }

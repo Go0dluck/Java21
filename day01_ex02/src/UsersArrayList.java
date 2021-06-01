@@ -1,23 +1,23 @@
 public class UsersArrayList implements UsersList{
-    private User[] UsersArr;
-    private int Size;
+    private User[] usersArr;
+    private int size;
     public UsersArrayList() {
-        UsersArr = new User[10];
+        usersArr = new User[10];
     }
 
     @Override
     public void addUser(String name, int balance) {
-        if (UsersArr.length == Size){
-            User[] UsersArrNew = new User[UsersArr.length + UsersArr.length / 2];
-            for (int i = 0; i < UsersArr.length; i++){
-                UsersArrNew[i] = UsersArr[i];
+        if (usersArr.length == size){
+            User[] UsersArrNew = new User[usersArr.length + usersArr.length / 2];
+            for (int i = 0; i < usersArr.length; i++){
+                UsersArrNew[i] = usersArr[i];
             }
-            UsersArr = UsersArrNew;
+            usersArr = UsersArrNew;
         }
-        for (int i = 0; i < UsersArr.length; i++){
-            if (UsersArr[i] == null){
-                UsersArr[i] = new User(name, balance);
-                Size++;
+        for (int i = 0; i < usersArr.length; i++){
+            if (usersArr[i] == null){
+                usersArr[i] = new User(name, balance);
+                size++;
                 return;
             }
         }
@@ -25,26 +25,26 @@ public class UsersArrayList implements UsersList{
 
     @Override
     public User retrieveUserId(int id) throws UserNotFoundException {
-        for (int i = 0; i < UsersArr.length; i++){
-            if (UsersArr[i] == null)
+        for (int i = 0; i < usersArr.length; i++){
+            if (usersArr[i] == null)
                 break;
-            if (UsersArr[i].getIdentifier() == id)
-                return UsersArr[i];
+            if (usersArr[i].getIdentifier() == id)
+                return usersArr[i];
         }
         throw new UserNotFoundException();
     }
 
     @Override
     public User retrieveUserIndex(int index) {
-        for (int i = 0; i < UsersArr.length; i++){
+        for (int i = 0; i < usersArr.length; i++){
             if (i == index)
-                return UsersArr[i];
+                return usersArr[i];
         }
         return null;
     }
 
     @Override
     public int retrieveNumberUsers() {
-        return Size;
+        return size;
     }
 }

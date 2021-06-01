@@ -1,27 +1,27 @@
 public class User {
-    private int         Identifier;
-    private String      Name;
-    private int         Balance;
+    private int         identifier;
+    private String      name;
+    private int         balance;
 
     public User(String name, int balance) {
         setBalance(balance);
-        Name = name;
+        this.name = name;
     }
 
     public int getIdentifier() {
-        return Identifier;
+        return identifier;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public float getBalance() {
-        return Balance;
+        return balance;
     }
 
     public void setBalance(int balance) {
@@ -29,6 +29,6 @@ public class User {
             System.out.println("Balance negative");
         }
         else
-            Balance = balance;
+            this.balance = balance;
     }
 }
