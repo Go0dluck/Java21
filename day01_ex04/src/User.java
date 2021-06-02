@@ -31,7 +31,9 @@ public class User {
         return balance;
     }
 
-    public void addTransaction(Transaction transaction){
+    public void addTransaction(Transaction transaction) throws IllegalTransactionException {
+        if (balance + transaction.getAmount() < 0)
+            throw new IllegalTransactionException();
         tranList.addTransaction(transaction);
         balance += transaction.getAmount();
     }

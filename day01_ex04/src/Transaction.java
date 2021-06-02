@@ -26,6 +26,10 @@ public class Transaction {
         setAmount(amount);
     }
 
+    public User getRecipient() {
+        return recipient;
+    }
+
     public UUID getIdentifier() {
         return identifier;
     }

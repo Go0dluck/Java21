@@ -4,6 +4,7 @@ public class TransactionsService {
     private UsersList usersList;
 
     public TransactionsService() {
+        usersList = new UsersArrayList();
     }
 
     public void addUser(User user){
@@ -14,7 +15,9 @@ public class TransactionsService {
         return usersList.retrieveUserId(id).getBalance();
     }
 
-    public void createTransaction(User sender, User recipient, int amount){
+    public void createTransaction(int senderId, int recipientId, int amount) throws UserNotFoundException, IllegalTransactionException {
+        User sender = usersList.retrieveUserId(senderId);
+        User recipient = usersList.retrieveUserId(recipientId);
         UUID uuid = UUID.randomUUID();
         Transaction transactionSender = new Transaction(uuid, sender, recipient, amount * -1);
         Transaction transactionRecipient = new Transaction(uuid, recipient, sender, amount);
@@ -22,21 +25,31 @@ public class TransactionsService {
         recipient.addTransaction(transactionRecipient);
     }
 
-    public Transaction[] getTransaction(User user){
-        return user.getTranList().toArray();
+    public Transaction[] getTransaction(int id) throws UserNotFoundException {
+        return usersList.retrieveUserId(id).getTranList().toArray();
     }
 
     public void delTransaction(UUID uuid, int id) throws UserNotFoundException, TransactionNotFoundException {
         usersList.retrieveUserId(id).getTranList().removeTransaction(uuid);
     }
 
-    public Transaction[] checkValid(){
+    public Transaction[] checkValid() throws UserNotFoundException {
         TransactionsList transactionsList = new TransactionsLinkedList();
 
         for (int i = 0; i < usersList.retrieveNumberUsers(); i++){
-//            usersList.retrieveUserIndex(i).getTranList().toArray()[0].getIdentifier()
-            for (int y = 0; y < usersList.retrieveUserIndex(i).getTranList().toArray().length; y++){
-                //usersList.retrieveUserIndex(i).getTranList().toArray()[y].getIdentifier()
+            Transaction [] transactions = usersList.retrieveUserId(i).getTranList().toArray();
+            for (int j = 0; j < transactions.length; j++){
+                User recipient = null;
+                recipient = usersList.retrieveUserId(transactions[j].getRecipient().getIdentifier());
+                assert recipient != null;
+                Transaction [] recipientTransactions = recipient.getTranList().toArray();
+                int k;
+                for (k = 0; k < recipientTransactions.length; k++){
+                    if (recipientTransactions[j].getIdentifier().equals(transactions[j].getIdentifier()))
+                        break;
+                }
+                if (k == recipientTransactions.length)
+                    transactionsList.addTransaction(transactions[j]);
             }
         }
         return transactionsList.toArray();
