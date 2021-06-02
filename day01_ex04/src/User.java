@@ -2,7 +2,7 @@ public class User {
     private int                 identifier;
     private String              name;
     private int                 balance;
-    private TransactionsList    TranList;
+    private TransactionsList    tranList;
 
     public User(String name, int balance) {
         identifier = UserIdsGenerator.getInstance().generateId();
@@ -12,7 +12,7 @@ public class User {
         else
             this.balance = balance;
         this.name = name;
-        TranList = new TransactionsLinkedList();
+        tranList = new TransactionsLinkedList();
     }
 
     public int getIdentifier() {
@@ -31,8 +31,13 @@ public class User {
         return balance;
     }
 
+    public void addTransaction(Transaction transaction){
+        tranList.addTransaction(transaction);
+        balance += transaction.getAmount();
+    }
+
     public TransactionsList getTranList() {
-        return TranList;
+        return tranList;
     }
 
     public void setBalance(int balance) {

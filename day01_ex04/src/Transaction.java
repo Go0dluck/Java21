@@ -10,7 +10,7 @@ public class Transaction {
     @Override
     public String toString() {
         if (category == Transfer.CREDITS)
-            return sender.getName() + " -> " + recipient.getName() + ", -" + getAmount() + ", OUTCOME, transaction " + getIdentifier();
+            return sender.getName() + " -> " + recipient.getName() + ", " + getAmount() + ", OUTCOME, transaction " + getIdentifier();
         else
             return sender.getName() + " -> " + recipient.getName() + ", +" + getAmount() + ", INCOME, transaction " + getIdentifier();
     }
@@ -19,9 +19,9 @@ public class Transaction {
         this.sender = sender;
         this.recipient = recipient;
         if (amount > 0)
-            category = Transfer.CREDITS;
-        else
             category = Transfer.DEBITS;
+        else
+            category = Transfer.CREDITS;
         identifier = uuid;
         setAmount(amount);
     }

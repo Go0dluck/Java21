@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java21.iml" filepath="$PROJECT_DIR$/.idea/Java21.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01_ex00/day01_ex00.iml" filepath="$PROJECT_DIR$/day01_ex00/day01_ex00.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01_ex01/day01_ex01.iml" filepath="$PROJECT_DIR$/day01_ex01/day01_ex01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01_ex02/day01_ex02.iml" filepath="$PROJECT_DIR$/day01_ex02/day01_ex02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01_ex03/day01_ex03.iml" filepath="$PROJECT_DIR$/day01_ex03/day01_ex03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day01_ex04/day01_ex04.iml" filepath="$PROJECT_DIR$/day01_ex04/day01_ex04.iml" />
+    </modules>
+  </component>
+</project>

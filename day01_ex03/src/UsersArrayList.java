@@ -6,7 +6,7 @@ public class UsersArrayList implements UsersList{
     }
 
     @Override
-    public void addUser(String name, int balance) {
+    public void addUser(User user) {
         if (usersArr.length == size){
             User[] UsersArrNew = new User[usersArr.length + usersArr.length / 2];
             for (int i = 0; i < usersArr.length; i++){
@@ -16,7 +16,7 @@ public class UsersArrayList implements UsersList{
         }
         for (int i = 0; i < usersArr.length; i++){
             if (usersArr[i] == null){
-                usersArr[i] = new User(name, balance);
+                usersArr[i] = user;
                 size++;
                 return;
             }

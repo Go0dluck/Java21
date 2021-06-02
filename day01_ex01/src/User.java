@@ -21,7 +21,7 @@ public class User {
         this.name = name;
     }
 
-    public float getBalance() {
+    public int getBalance() {
         return balance;
     }
 
