@@ -1,4 +1,4 @@
-package edu.school21.chat.models;
+package edu.school21.chat.app;
 
 import java.io.File;
 import java.io.FileNotFoundException;

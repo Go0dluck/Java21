@@ -1,16 +1,17 @@
 package edu.school21.chat.models;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User {
     private long                idUser;
     private String              login;
     private String              password;
-    private ArrayList<Chatroom> listCreatedRooms;
-    private ArrayList<Chatroom> listChatRooms;
+    private List<Chatroom> listCreatedRooms;
+    private List<Chatroom> listChatRooms;
 
-    public User(long idUser, String login, String password, ArrayList<Chatroom> listCreatedRooms, ArrayList<Chatroom> listChatRooms) {
+    public User(long idUser, String login, String password, List<Chatroom> listCreatedRooms, List<Chatroom> listChatRooms) {
         this.idUser = idUser;
         this.login = login;
         this.password = password;
@@ -30,11 +31,11 @@ public class User {
         return password;
     }
 
-    public ArrayList<Chatroom> getListCreatedRooms() {
+    public List<Chatroom> getListCreatedRooms() {
         return listCreatedRooms;
     }
 
-    public ArrayList<Chatroom> getListChatRooms() {
+    public List<Chatroom> getListChatRooms() {
         return listChatRooms;
     }
 

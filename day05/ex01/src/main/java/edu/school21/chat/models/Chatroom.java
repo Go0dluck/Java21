@@ -1,15 +1,16 @@
 package edu.school21.chat.models;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Chatroom {
     private long                idRoom;
     private String              name;
     private User                owner;
-    private ArrayList<Message> listMessages;
+    private List<Message> listMessages;
 
-    public Chatroom(long idRoom, String name, User owner, ArrayList<Message> listMessages) {
+    public Chatroom(long idRoom, String name, User owner, List<Message> listMessages) {
         this.idRoom = idRoom;
         this.name = name;
         this.owner = owner;
@@ -28,7 +29,7 @@ public class Chatroom {
         return owner;
     }
 
-    public ArrayList<Message> getListMessages() {
+    public List<Message> getListMessages() {
         return listMessages;
     }
 

@@ -8,7 +8,7 @@ public class Message {
     private User            author;
     private Chatroom        room;
     private String          message;
-    private LocalDateTime dateTime;
+    private LocalDateTime   dateTime;
 
     public Message(long idMessage, User author, Chatroom room, String message, LocalDateTime dateTime) {
         this.idMessage = idMessage;
